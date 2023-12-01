@@ -1,4 +1,4 @@
-# Angular
+# Angular in Action
 Let's dive into the most advanced front-end framework in the history
 
 ### License
