@@ -4,28 +4,26 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   styleUrl: './app.component.scss',
   template: `
-      <h1>Hello Angular</h1>
-      <button (click)="showOrHide()">
-        {{ buttonName }}
+      <h1>{{title}}</h1>
+      <button (click)="handleClick1()">
+        Click Me
       </button>
-
-      @if(flag){
-        <h2>Hello React?</h2>
-      }@else {
-        <h2>I am from Angular</h2>
-      }
+      <button (click)="handleClick1();handleClick2()">
+        Click Me
+      </button>
+      <app-change-detection />
+      <app-control-flow />
+      <app-loop />
   `
 })
 export class AppComponent {
-  flag = true;
-  buttonName = 'Show Angular';
+    title = 'Hello Angular!';
 
-  showOrHide(){
-    this.flag = !this.flag;
-    if (!this.flag) {
-      this.buttonName = 'Show React';
-    }else{
-      this.buttonName = 'Show Angular';
+    handleClick1(){
+      alert("Okay-1");
     }
-  }
+
+    handleClick2(){
+      alert("Okay-2");
+    }    
 }
