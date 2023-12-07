@@ -2,9 +2,15 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  template: `
+    <app-header 
+      [my-title]="'State Management in Angular'"
+      [font-size]="'text-2xl'"
+      [color]="'text-blue-500'"/>
+    <app-task-list />
+  `
 })
 export class AppComponent {
-  title = 'state-management';
+
 }
