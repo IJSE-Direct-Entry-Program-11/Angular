@@ -34,6 +34,11 @@ const appRoutes: Routes = [
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: '/app',
+    pathMatch: 'full'
+  },
+  {
     path: 'login',
     component: LoginComponent
   },
@@ -42,6 +47,10 @@ const routes: Routes = [
     component: MainComponent,
     children: appRoutes,
     canActivate: [authGuard]
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   }
 ];
 
