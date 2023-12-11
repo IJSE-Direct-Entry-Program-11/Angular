@@ -8,9 +8,16 @@ import { ManageCustomersComponent } from './view/manage-customers/manage-custome
 import { ManageItemsComponent } from './view/manage-items/manage-items.component';
 import { LoginComponent } from './view/login/login.component';
 import { NotFoundComponent } from './view/not-found/not-found.component';
-import {RouterModule, Routes} from "@angular/router";
+import {Route, RouterModule, Routes} from "@angular/router";
+import {FormsModule} from "@angular/forms";
+import {authGuard} from "./guard/auth.guard";
 
-const routes: Routes = [
+const appRoutes: Routes = [
+  {
+    path: '',
+    redirectTo: '/app/home',
+    pathMatch: 'full'
+  },
   {
     path: 'home',
     component: DashboardComponent
@@ -22,6 +29,19 @@ const routes: Routes = [
   {
     path: 'items',
     component: ManageItemsComponent
+  }
+]
+
+const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'app',
+    component: MainComponent,
+    children: appRoutes,
+    canActivate: [authGuard]
   }
 ];
 
@@ -37,7 +57,8 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

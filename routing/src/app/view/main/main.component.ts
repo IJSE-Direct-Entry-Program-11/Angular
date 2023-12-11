@@ -14,9 +14,12 @@ import { Component } from '@angular/core';
             rounded">Logout</button>
     </header>
     <nav class="flex list-none justify-center border-b">
-        <li [class]="classList1">HOME</li>
-        <li [class]="classList2">MANAGE CUSTOMERS</li>
-        <li [class]="'p-2 border-x cursor-pointer hover:bg-slate-200'">MANAGE ITEMS</li>
+        <li routerLinkActive="bg-orange-500 hover:bg-orange-400"
+            routerLink="/home" [class]="classList1">HOME</li>
+        <li routerLinkActive="bg-orange-500 hover:bg-orange-400"
+            routerLink="/customers" [class]="classList2">MANAGE CUSTOMERS</li>
+        <li routerLinkActive="bg-orange-500 hover:bg-orange-400"
+            routerLink="/items" [class]="'p-2 border-x cursor-pointer hover:bg-slate-200'">MANAGE ITEMS</li>
     </nav>
     <main class="flex justify-center">
         <router-outlet></router-outlet>
