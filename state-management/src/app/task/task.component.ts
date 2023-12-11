@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TaskDto } from '../dto/task-dto';
+import { TaskService } from '../service/task.service';
 
 @Component({
   selector: 'app-task',
@@ -24,6 +25,10 @@ export class TaskComponent {
   task!: TaskDto;
   @Output()
   onDelete = new EventEmitter<TaskDto>();
+
+  constructor(private service: TaskService){
+    
+  }
 
   onTaskDelete(task: TaskDto){
       this.onDelete.emit(task);

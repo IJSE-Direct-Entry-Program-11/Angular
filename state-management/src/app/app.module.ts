@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { InjectionToken, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -6,6 +6,10 @@ import { HeaderComponent } from './header/header.component';
 import { TasklistComponent } from './tasklist/tasklist.component';
 import { TaskComponent } from './task/task.component';
 import { NewTaskComponent } from './new-task/new-task.component';
+import { FormsModule } from '@angular/forms';
+import { TaskService } from './service/task.service';
+
+const abc = new InjectionToken('abc');
 
 @NgModule({
   declarations: [
@@ -16,9 +20,10 @@ import { NewTaskComponent } from './new-task/new-task.component';
     NewTaskComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [TaskService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

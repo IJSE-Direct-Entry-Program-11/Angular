@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TaskDto } from '../dto/task-dto';
+import { TaskService } from '../service/task.service';
 
 @Component({
   selector: 'app-tasklist',
@@ -16,6 +17,10 @@ import { TaskDto } from '../dto/task-dto';
   styleUrl: './tasklist.component.scss'
 })
 export class TasklistComponent {
+
+  constructor(private service: TaskService){
+
+  }
 
   taskList: Array<TaskDto> = [
     new TaskDto(1, "Task 1"),
