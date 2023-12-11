@@ -8,7 +8,8 @@ import { Component } from '@angular/core';
       [my-title]="'State Management in Angular'"
       [font-size]="'text-2xl'"
       [color]="'text-blue-500'"/>
-    <app-task-list />
+    <app-new-task />
+    <app-tasklist />
   `
 })
 export class AppComponent {
