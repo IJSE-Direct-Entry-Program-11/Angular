@@ -23,14 +23,12 @@ import { TaskService } from '../service/task.service';
 export class TaskComponent {
   @Input()
   task!: TaskDto;
-  @Output()
-  onDelete = new EventEmitter<TaskDto>();
 
   constructor(private service: TaskService){
-    
+
   }
 
   onTaskDelete(task: TaskDto){
-      this.onDelete.emit(task);
+      this.service.deleteTask(task);
   }
 }

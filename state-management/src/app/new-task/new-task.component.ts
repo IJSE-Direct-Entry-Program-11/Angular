@@ -1,5 +1,6 @@
 import { Component, Inject, inject } from '@angular/core';
 import { TaskService } from '../service/task.service';
+import { TaskDto } from '../dto/task-dto';
 
 @Component({
   selector: 'app-new-task',
@@ -32,7 +33,9 @@ export class NewTaskComponent {
       return;
     }
 
-    // Todo: Add a new task into the list
+    this.service.addTask(
+      new TaskDto(this.service.getAllTasks().length,
+                  description));
     txtElm.value = '';
     txtElm.focus();
   }
