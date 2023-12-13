@@ -11,8 +11,7 @@ import { Component } from '@angular/core';
         <div class="mt-3">Go to
             <a routerLink="/app"
             class="bg-green-200 p-2 rounded
-                hover:bg-green-500"
-            >App</a>
+                hover:bg-green-500">App</a>
         </div>
     </div>
   `,
