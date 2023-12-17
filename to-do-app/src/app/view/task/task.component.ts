@@ -1,6 +1,7 @@
-import {Component, Input} from '@angular/core';
+import {Component, Inject, Input} from '@angular/core';
 import {TaskDTO} from "../../dto/task.dto";
-import {TaskService} from "../../service/task.service";
+import {SpringTaskService} from "../../service/spring-task.service";
+import {TaskService} from "../../service/task-service";
 
 @Component({
   selector: 'app-task',
@@ -33,7 +34,7 @@ export class TaskComponent {
   @Input()
   task!: TaskDTO;
 
-  constructor(private taskService: TaskService) {
+  constructor(@Inject(TaskService) private taskService: TaskService) {
   }
 
   onDeleteClick() {

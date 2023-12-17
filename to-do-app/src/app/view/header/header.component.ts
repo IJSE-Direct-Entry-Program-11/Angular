@@ -40,7 +40,6 @@ export class HeaderComponent {
 
   constructor(public authService: AuthService) {
     this.userImage = `url(${authService.getPrincipal()!?.photoURL!})`;
-    console.log(this.userImage);
   }
 
   @HostListener('document:click')
