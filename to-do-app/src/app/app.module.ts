@@ -22,24 +22,9 @@ import {errorInterceptor} from "./interceptor/error.interceptor";
 import {CloudStoreTaskService} from "./service/cloud-store-task.service";
 import {TaskService} from "./service/task-service";
 import {getFirestore, provideFirestore} from "@angular/fire/firestore";
-import {SpringTaskService} from "./service/spring-task.service";
+import {RoutingModule} from "./routing.module";
 
-const APP_ROUTES: Routes = [
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: '/app'
-  },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'app',
-    component: MainComponent,
-    canActivate: [authGuard]
-  }
-]
+
 
 @NgModule({
   declarations: [
@@ -54,7 +39,7 @@ const APP_ROUTES: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(APP_ROUTES),
+    RoutingModule,
     provideFirebaseApp(() => initializeApp({
       "projectId": "to-do-app-angular-dd797",
       "appId": "1:385169365929:web:475d2cac4be7833cc382b8",
